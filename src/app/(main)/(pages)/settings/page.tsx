@@ -20,9 +20,9 @@ const Settings = (props: Props) => {
           </p>
         </div>
         <ProfilePicture
-          onDelete={removeProfileImage}
-          userImage={user?.profileImage || ""}
-          onUpload={uploadProfileImage}
+          onDelete={'true'}
+          userImage={'user?.profileImage || ""'}
+          onUpload={'uploadProfileImage'}
         ></ProfilePicture>
         <ProfileForm />
       </div>
