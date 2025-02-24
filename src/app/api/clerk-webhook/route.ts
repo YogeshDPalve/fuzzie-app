@@ -6,8 +6,10 @@ export async function POST(req: Request) {
     const body = await req.json();
     console.log("✅", body);
 
-    if (!body || !body.data) {
-      throw new Error("Invalid request payload");
+    if (!body || typeof body !== "object") {
+      throw new Error(
+        "Invalid request payload: Body is empty or not an object"
+      );
     }
 
     const { id, email_addresses, first_name, image_url } = body?.data;
@@ -31,8 +33,8 @@ export async function POST(req: Request) {
     return new NextResponse("User updated in database successfully", {
       status: 200,
     });
-  } catch (error) {
-    console.error("Error updating database:", error);
+  } catch (error: any) {
+    console.log("Error updating database:", error);
     return new NextResponse("Error updating user in database", { status: 500 });
   }
 }
