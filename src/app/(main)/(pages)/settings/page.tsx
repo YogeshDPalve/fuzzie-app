@@ -29,6 +29,7 @@ const Settings = async (props: Props) => {
       where: { clerkId: authUser.id },
       data: { profileImage: image },
     });
+    return responce;
   };
 
   return (
