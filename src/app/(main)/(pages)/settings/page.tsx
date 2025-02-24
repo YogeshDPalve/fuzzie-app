@@ -29,9 +29,23 @@ const Settings = async (props: Props) => {
       where: { clerkId: authUser.id },
       data: { profileImage: image },
     });
+    
     return responce;
   };
 
+  const updateUserInfo = async (name: string) => {
+    "use server";
+
+    const updateUser = await db.user.update({
+      where: {
+        clerkId: authUser.id,
+      },
+      data: {
+        name,
+      },
+    });
+    return updateUser;
+  };
   return (
     <div className="flex flex-col gap-4">
       <h1 className="sticky top-0 z-[10] flex items-center justify-between border-b bg-background/50 p-6 text-4xl backdrop-blur-lg">
