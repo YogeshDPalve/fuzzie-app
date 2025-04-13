@@ -10,10 +10,11 @@ const Settings = async (props: Props) => {
   // WIP : wire up profile picture
 
   const authUser = await currentUser();
+ 
   if (!authUser) return null;
 
   const user = await db.user.findUnique({ where: { clerkId: authUser.id } });
-
+  console.log("user", user);
   const removeProfileImage = async () => {
     "use server";
     const responce = await db.user.update({
@@ -25,11 +26,12 @@ const Settings = async (props: Props) => {
 
   const uploadProfileImage = async (image: string) => {
     "use server";
+
     const responce = await db.user.update({
       where: { clerkId: authUser.id },
       data: { profileImage: image },
     });
-    
+    console.log("profile link uploaded", responce);
     return responce;
   };
 

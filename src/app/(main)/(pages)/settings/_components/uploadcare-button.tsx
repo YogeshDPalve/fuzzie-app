@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { FileUploaderRegular } from "@uploadcare/react-uploader/next";
 import "@uploadcare/react-uploader/core.css";
-import { useTheme } from "next-themes"; 
+import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 type Props = {
   onUpload?: any;

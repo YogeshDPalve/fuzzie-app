@@ -21,7 +21,7 @@ model User {
   credits      String? @default("10")
 
   createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  updatedAt        DateTime @updatedAt  
   localGoogleId    String?  @unique
   googleResourceId String?  @unique
 
@@ -35,7 +35,7 @@ model User {
 
 model LocalGoogleCredential {
   id          String @id @default(uuid())
-  accessToken String @unique
+  accessToken String @unique  
 
   folderId   String?
   pageToken  String?
